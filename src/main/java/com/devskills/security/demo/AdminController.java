@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 @RestController
 @RequestMapping("/api/v1/admin")
 @PreAuthorize("hasRole('ADMIN')")
@@ -21,12 +23,14 @@ public class AdminController {
 	
 	@PostMapping
 	@PreAuthorize("hasAuthority('admin:create')")
+	@Hidden
 	public String post() {
 		return "POST:: admin controller";
 	}
 	
 	@PutMapping
 	@PreAuthorize("hasAuthority('admin:update')")
+	@Hidden
 	public String put() {
 		return "PUT:: admin controller";
 	}
